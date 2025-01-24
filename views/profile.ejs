@@ -6,8 +6,8 @@
   <title>Profile Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans">
-  <div class="max-w-4xl mx-auto p-4">
+<body class="  text-white font-sans">
+  <div class="max-w-4xl bg-blue-800 text-white mx-auto p-4">
     <!-- Profile Card -->
     <div class="bg-white rounded-lg shadow-md p-6">
       <div class="flex flex-col md:flex-row items-center md:items-start">
@@ -17,7 +17,7 @@
         </div>
 
         <!-- User Info -->
-        <div class="md:ml-6 mt-4 md:mt-0 flex-1">
+        <div class="md:ml-6  text-white mt-4 md:mt-0 flex-1">
           <h1 class="text-2xl font-semibold text-gray-800">John Doe</h1>
           <p class="text-gray-600">AI Health Diagnosis User</p>
           <div class="mt-4">
@@ -28,6 +28,21 @@
         </div>
       </div>
     </div>
+
+    <section class="bg-blue-800 text-white py-20">
+      <div class="container mx-auto text-center">
+          <h2 class="text-4xl font-bold mb-4">Welcome to the AI-Powered Health Diagnosis System</h2>
+          <p class="mb-6">Using AI and Machine Learning for accurate and fast health diagnosis</p>
+          <div class="relative mx-auto w-full max-w-lg">
+              <input type="text" placeholder="Search symptoms" class="w-full px-4 py-3 rounded-full focus:outline-none text-black">
+              <button class="absolute right-2 top-1  bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded-full">Search</button>
+          </div>
+          <div class="mt-6">
+              <button class="bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-full">Learn More</button>
+              <button class="bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-full ml-4">Get Started</button>
+          </div>
+      </div>
+  </section>
 
     <!-- Health Overview -->
     <div class="mt-8">
