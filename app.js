@@ -58,7 +58,7 @@ app.get('/profile' , (req , res) => {
     if(err) return res.redirect('/login');
     const userDetails = await UserModel.findById(user.userId);
     res.render('profile', { userDetails });
-    console.log(userDetails);
+    
     
   })
 })
@@ -78,6 +78,25 @@ app.post("/login", async (req, res) => {
 
 })
 
+ app.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
+});
+
+app.get("/recent", (req, res) => {
+  res.render("recent");
+});
+
+app.get("/upcoming", (req, res) => {
+  res.render("upcoming");
+});
+
+app.get("/daily", (req, res) => {
+  res.render("daily");
+});
+app.get("/tipsAI", (req, res) => {
+  res.render("tipsAI");
+});
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
