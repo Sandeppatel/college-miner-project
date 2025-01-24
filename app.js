@@ -1,9 +1,19 @@
 require('dotenv').config()
 const express = require("express");
 const path = require("path");
+const bcrypt = require('bcrypt')
+const DbModel = require('./config/dp.config')
+const UserModel = require('./models/user')
+const cookieParser = require('cookie-parser')
+
+const jwt = require('jsonwebtoken')
+
+
+
 const app = express();
 
 const port = process.env.PORT || 3000;
+app.use(cookieParser());
 
 app.set("view engine", "ejs");
 
@@ -14,6 +24,45 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+  app.get("/login", (req, res) => {
+    res.render("login");
+  });
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.post("/register", async (req, res) => {
+  let { name, email, password } = req.body ;
+   
+    const  hash = await bcrypt.hash(password , 10);
+
+  
+    
+    const user = await UserModel.create({ name, email, password: hash });
+    
+    const token = jwt.sign({email ,  userId: user._id },  "shhhhh", { expiresIn: '1h' });
+   
+   
+    res.cookie("token", token, { expiresIn: "1h" });
+    res.redirect("/profile");
+
+});
+
+
+app.get('/profile' , (req , res) => {
+  const token = req.cookies.token;
+  if(!token) return res.redirect('/login');
+  jwt.verify(token, "shhhhh", async (err, user) => {
+    if(err) return res.redirect('/login');
+    const userDetails = await UserModel.findById(user.userId);
+    res.render('profile', { userDetails });
+    console.log(userDetails);
+    
+  })
+})
+
 
 
 app.listen(port, () => {
