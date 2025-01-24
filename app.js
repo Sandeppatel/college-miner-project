@@ -63,6 +63,20 @@ app.get('/profile' , (req , res) => {
   })
 })
 
+app.post("/login", async (req, res) => {
+  let { email, password } = req.body;
+  
+  const user = await  UserModel.findOne({ email });
+  
+  
+  if(!user) return  res.redirect("/login"); //
+  const match = await bcrypt.compare(password, user.password);
+  if(!match)  return  res.redirect("/login"); //
+  const token = jwt.sign({email ,  userId: user._id },  "shhhhh", { expiresIn: '1h' });
+  res.cookie("token", token, { expiresIn: "1h" });
+  res.redirect("/profile");
+
+})
 
 
 app.listen(port, () => {
