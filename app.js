@@ -6,6 +6,10 @@ const DbModel = require('./config/dp.config')
 const UserModel = require('./models/user')
 const cookieParser = require('cookie-parser')
 
+const http = require('http');
+
+
+
 const jwt = require('jsonwebtoken')
 
 
@@ -14,6 +18,11 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 app.use(cookieParser());
+
+
+const server = http.createServer(app);
+
+
 
 app.set("view engine", "ejs");
 
@@ -98,6 +107,6 @@ app.get("/tipsAI", (req, res) => {
   res.render("tipsAI");
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Page</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="  text-white font-sans">
-  <div class="max-w-4xl bg-blue-800 text-white mx-auto p-4">
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div class="max-w-5xl mx-auto p-6">
     <!-- Profile Card -->
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <div class="flex flex-col md:flex-row items-center md:items-start">
+    <div class="bg-white rounded-lg shadow-lg p-8 text-center md:text-left">
+      <div class="flex flex-col md:flex-row items-center">
         <!-- Profile Image -->
         <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500">
-          <img src="https://images.unsplash.com/photo-1519456264917-42d0aa2e0625?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJveSUyMGltZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Profile Picture" class="object-cover w-full h-full">
+          <img src="https://images.unsplash.com/photo-1519456264917-42d0aa2e0625?w=500&auto=format&fit=crop&q=60"
+            alt="Profile Picture" class="object-cover w-full h-full">
         </div>
-
         <!-- User Info -->
-        <div class="md:ml-6  text-white mt-4 md:mt-0 flex-1">
-          <h1 class="text-2xl font-semibold text-gray-800">John Doe</h1>
-          <p class="text-gray-600">AI Health Diagnosis User</p>
+        <div class="md:ml-8 mt-6 md:mt-0">
+          <h1 class="text-3xl font-bold text-blue-600">John Doe</h1>
+          <p class="text-gray-500 text-sm">AI Health Diagnosis User</p>
           <div class="mt-4">
             <p class="text-gray-700">Email: <span class="font-medium text-gray-800"><%= userDetails.email %></span></p>
             <p class="text-gray-700">Phone: <span class="font-medium text-gray-800">+123 456 7890</span></p>
@@ -29,55 +31,49 @@
       </div>
     </div>
 
-    <section class="bg-blue-800 text-white py-20">
-      <div class="container mx-auto text-center">
-          <h2 class="text-4xl font-bold mb-4">Welcome to the AI-Powered Health Diagnosis System</h2>
-          <p class="mb-6">Using AI and Machine Learning for accurate and fast health diagnosis</p>
-          <div class="relative mx-auto w-full max-w-lg">
-              <input type="text" placeholder="Search symptoms" class="w-full px-4 py-3 rounded-full focus:outline-none text-black">
-              <button class="absolute right-2 top-1  bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded-full">Search</button>
-          </div>
-          <div class="mt-6">
-              <button class="bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-full">Learn More</button>
-              <button class="bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-full ml-4">Get Started</button>
-              <a class="bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-full ml-4" href="/logout" >Logout</a>
-          </div>
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white py-16 mt-8 rounded-lg shadow-lg text-center">
+      <h2 class="text-4xl font-bold mb-4">Welcome to the AI-Powered Health Diagnosis System</h2>
+      <p class="mb-6 text-lg">Using AI and Machine Learning for accurate and fast health diagnosis</p>
+      <div class="relative mx-auto w-full max-w-lg">
+        <input type="text" placeholder="Search symptoms"
+          class="w-full px-5 py-3 rounded-full focus:outline-none shadow-lg text-gray-800">
+        <button class="absolute right-2 top-1 bg-blue-500 hover:bg-blue-400 text-white px-6 py-2 rounded-full shadow-md">Search</button>
       </div>
-  </section>
+      <div class="mt-6 space-x-4">
+        <button class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-full shadow-md">Learn More</button>
+        <button class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-full shadow-md">Get Started</button>
+        <a class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-full shadow-md" href="/logout">Logout</a>
+      </div>
+    </section>
 
     <!-- Health Overview -->
-    <div class="mt-8">
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">Health Overview</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold text-blue-600 mb-6">Health Overview</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Card 1 -->
-        <div class="bg-white rounded-lg shadow-md p-4">
-       
-          <a class="text-lg font-medium text-gray-800" href="/recent">Recent Diagnosis</a>
-          <p class="text-gray-600 mt-2">No issues detected in your last scan.</p>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <a href="/recent" class="text-lg font-bold text-blue-600 hover:underline">Recent Diagnosis</a>
+          <p class="text-gray-500 mt-2">No issues detected in your last scan.</p>
         </div>
         <!-- Card 2 -->
-        <div class="bg-white rounded-lg shadow-md p-4">
-         
-        <a class="text-lg font-medium text-gray-800" href="/upcoming">Upcoming Appointments</a>
-
-
-          <p class="text-gray-600 mt-2">Dr. Smith, 25th Jan 2025, 10:00 AM</p>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <a href="/upcoming" class="text-lg font-bold text-blue-600 hover:underline">Upcoming Appointments</a>
+          <p class="text-gray-500 mt-2">Dr. Smith, 25th Jan 2025, 10:00 AM</p>
         </div>
         <!-- Card 3 -->
-        <div class="bg-white rounded-lg shadow-md p-4">
-         
-          <a class="text-lg font-medium text-gray-800" href="/daily">Daily Steps</a>
-          
-          <p class="text-gray-600 mt-2">8,500 steps today!</p>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <a href="/daily" class="text-lg font-bold text-blue-600 hover:underline">Daily Steps</a>
+          <p class="text-gray-500 mt-2">8,500 steps today!</p>
         </div>
         <!-- Card 4 -->
-        <div class="bg-white rounded-lg shadow-md p-4">
-          <a class="text-lg font-medium text-gray-800" href="/tipsAI">Health Tips</a>
-   
-          <p class="text-gray-600 mt-2">Stay hydrated and get enough sleep.</p>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <a href="/tipsAI" class="text-lg font-bold text-blue-600 hover:underline">Health Tips</a>
+          <p class="text-gray-500 mt-2">Stay hydrated and get enough sleep.</p>
         </div>
       </div>
     </div>
   </div>
 </body>
+
 </html>
